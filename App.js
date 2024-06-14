@@ -4,8 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
 import Root from "./navigation/Root";
 import Splash from "./screens/Splash";
-import { Ionicons } from "@expo/vector-icons";
+import { Fontisto, Ionicons } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
+import { ThemeProvider } from "styled-components/native";
+import { lightTheme } from "./styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -24,11 +26,15 @@ export default function App() {
 
       "RobotoSerif-Light": require("./assets/fonts/RobotoSerif-Light.ttf"),
       ...Ionicons.font,
+      ...Fontisto.font,
     });
   };
 
   const LoadAssets = async () => {
-    await Asset.loadAsync([require("./assets/splash-logo.png")]);
+    await Asset.loadAsync([
+      require("./assets/splash-logo.png"),
+      require("./assets/logo.png"),
+    ]);
   };
 
   if (appLoading) return <Splash />;
@@ -42,8 +48,10 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Root />
-    </NavigationContainer>
+    <ThemeProvider theme={lightTheme}>
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }

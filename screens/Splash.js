@@ -24,11 +24,7 @@ const Brand = styled.Text`
 const Splash = () => {
   return (
     <Container>
-      <Logo
-        source={require("../assets/splash-logo.png")}
-        resizeMode="contain"
-      />
-      <Brand>Denrux</Brand>
+      <Logo source={require("../assets/logo.png")} resizeMode="contain" />
 
       <ActivityIndicator size={24} color="#3c5bfa" />
     </Container>

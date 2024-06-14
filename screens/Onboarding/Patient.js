@@ -1,12 +1,16 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Dimensions } from "react-native";
+import styled from "styled-components/native";
 
-const PatientScreen = () => {
-  return (
-    <View style={{ flex: 1 }}>
-      <Text>PatientScreen</Text>
-    </View>
-  );
+const { height: SCREEN_HEIGHT } = Dimensions.get("window");
+
+const Container = styled.ScrollView`
+  flex: 1;
+  background-color: ${(props) => props.theme.screenBg};
+`;
+
+const OnboardingPatient = () => {
+  return <Container></Container>;
 };
 
-export default PatientScreen;
+export default OnboardingPatient;

@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import DecisionScreen from "../screens/Onboarding/Decision";
 import PatientScreen from "../screens/Onboarding/Patient";
 import ProviderScreen from "../screens/Onboarding/Provider";
+import OnboardingPatient from "../screens/Onboarding/Patient";
 
 const Onboarding = () => {
   const OnboardingScreens = createStackNavigator();
@@ -14,12 +15,12 @@ const Onboarding = () => {
       }}
     >
       <OnboardingScreens.Screen
-        name="select-account-type"
-        component={DecisionScreen}
+        name="onboarding-patient"
+        component={OnboardingPatient}
       />
       <OnboardingScreens.Screen
-        name="selected patient"
-        component={PatientScreen}
+        name="select-account-type"
+        component={DecisionScreen}
       />
       <OnboardingScreens.Screen
         name="selected-health-provider"
