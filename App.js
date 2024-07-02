@@ -19,6 +19,7 @@ export default function App() {
     await Font.loadAsync({
       "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
       "Roboto-Light": require("./assets/fonts/Roboto-Light.ttf"),
+      "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
 
       "RobotoSerif-Regular": require("./assets/fonts/RobotoSerif-Regular.ttf"),
 
@@ -34,6 +35,8 @@ export default function App() {
     await Asset.loadAsync([
       require("./assets/splash-logo.png"),
       require("./assets/logo.png"),
+      require("./assets/p-01.jpg"),
+      require("./assets/p-02.png"),
     ]);
   };
 

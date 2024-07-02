@@ -13,7 +13,7 @@ const Container = styled.ScrollView`
 
 const Top = styled.View`
   width: 100%;
-  height: ${SCREEN_HEIGHT / 3};
+  height: ${SCREEN_HEIGHT / 3}px;
   justify-content: center;
   align-items: center;
 `;
@@ -87,8 +87,19 @@ const ActionItem = styled.TouchableOpacity`
 const Span = styled.Text`
   color: #3c5bfa;
 `;
-const DecisionScreen = () => {
+const DecisionScreen = ({ navigation: { navigate } }) => {
   const theme = useTheme();
+
+  const goToPatientOnboarding = () => {
+    navigate("onboarding-patient");
+  };
+  const goToProviderOnboarding = () => {
+    navigate("onboarding-provider");
+  };
+  const goToSignin = () => {
+    navigate("sign-in");
+  };
+
   return (
     <Container contentContainerStyle={{ justifyContent: "space-between" }}>
       <Top>
@@ -98,7 +109,7 @@ const DecisionScreen = () => {
         <Title>How would you want to use the app?</Title>
         <ActionContainer>
           <ActionItem>
-            <ActionButton>
+            <ActionButton onPress={goToPatientOnboarding}>
               <Fontisto name="person" size={40} color="#3C5BFA" />
               <ActionText>Patient</ActionText>
             </ActionButton>
@@ -107,18 +118,14 @@ const DecisionScreen = () => {
             </ActionInfo>
           </ActionItem>
           <ActionItem>
-            <ActionButton>
+            <ActionButton onPress={goToProviderOnboarding}>
               <Fontisto name="doctor" size={40} color="#3C5BFA" />
               <ActionText>Health Provider</ActionText>
             </ActionButton>
             <ActionInfo>Providing health services to patients</ActionInfo>
           </ActionItem>
         </ActionContainer>
-        <SiginText
-          onPress={() => {
-            //go to signin page
-          }}
-        >
+        <SiginText onPress={goToSignin}>
           Already have a account? <Span>Sign in</Span>
         </SiginText>
       </Bottom>
