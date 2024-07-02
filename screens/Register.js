@@ -5,6 +5,7 @@ import styled, { useTheme } from "styled-components/native";
 import TextInput from "../components/TextInput";
 import DropDown from "react-native-input-select";
 import TermsAndCondition from "../components/Terms";
+import TopBar from "../components/TopBarBack";
 
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -28,19 +29,6 @@ const SubTitle = styled.Text`
   margin-bottom: 20px;
   margin-top: 0px;
   padding: 0px 20px;
-`;
-
-const TopBar = styled.View`
-  width: 100%;
-  justify-content: space-between;
-  flex-direction: row;
-`;
-const TopBarButton = styled.TouchableOpacity`
-  padding: 10px 20px;
-  color: ${(props) => props.theme.primaryColor};
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -75,7 +63,7 @@ const BottomButtonText = styled.Text`
 const HeaderLogo = styled.Image`
   height: 80px;
   width: 80px;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const Span = styled.Text`
@@ -94,10 +82,8 @@ const RegisterScreen = ({ navigation }) => {
 
   const EmailRef = useRef();
 
-  const goBack = () => {
-    if (navigation.canGoBack()) {
-      navigation.goBack();
-    }
+  const goToSigin = () => {
+    navigation.navigate("sign-in");
   };
 
   useEffect(() => {
@@ -108,15 +94,7 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <Container keyboardDismissMode="on-drag">
-      <TopBar>
-        <TopBarButton onPress={goBack}>
-          <Ionicons
-            name="chevron-back-outline"
-            size={20}
-            color={theme.primaryColor}
-          />
-        </TopBarButton>
-      </TopBar>
+      <TopBar />
       <HeaderLogo source={require("../assets/logo.png")} resizeMode="contain" />
       <Title>Sign Up</Title>
       <SubTitle>Again easy access to healthcare providers</SubTitle>
@@ -151,7 +129,7 @@ const RegisterScreen = ({ navigation }) => {
       </Button>
 
       <Bottom>
-        <Button>
+        <Button onPress={goToSigin}>
           <BottomButtonText>
             I aready have and account? <Span>Sign in.</Span>
           </BottomButtonText>

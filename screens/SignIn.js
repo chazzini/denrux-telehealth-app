@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Dimensions, KeyboardAvoidingView } from "react-native";
 import styled from "styled-components/native";
 import TextInput from "../components/TextInput";
+import TopBar from "../components/TopBarBack";
 
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -26,19 +27,6 @@ const SubTitle = styled.Text`
   margin-bottom: 20px;
   margin-top: 10px;
   padding: 0px 20px;
-`;
-
-const TopBar = styled.View`
-  width: 100%;
-  justify-content: space-between;
-  flex-direction: row;
-`;
-const TopBarButton = styled.TouchableOpacity`
-  padding: 10px 20px;
-  color: #3c5bfa;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -82,11 +70,6 @@ const Span = styled.Text`
 
 const SiginScreen = ({ navigation }) => {
   const EmailRef = useRef();
-  const goBack = () => {
-    if (navigation.canGoBack()) {
-      navigation.goBack();
-    }
-  };
 
   const goToRegisterScreen = () => {
     console.log(navigation);
@@ -101,11 +84,7 @@ const SiginScreen = ({ navigation }) => {
 
   return (
     <Container>
-      <TopBar>
-        <TopBarButton onPress={goBack}>
-          <Ionicons name="chevron-back-outline" size={20} color="#3c5bfa" />
-        </TopBarButton>
-      </TopBar>
+      <TopBar />
       <HeaderLogo source={require("../assets/logo.png")} resizeMode="contain" />
       <Title>Welcome Back</Title>
       <SubTitle>Again easy access to healthcare providers</SubTitle>
