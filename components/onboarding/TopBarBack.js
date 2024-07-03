@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import styled, { useTheme } from "styled-components/native";
+import { StatusBar } from "react-native";
 
 const RowView = styled.View`
   width: 100%;
@@ -28,6 +29,7 @@ const TopBar = () => {
 
   return (
     <RowView>
+      <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <TopBarButton onPress={goBack}>
         <Ionicons
           name="chevron-back-outline"

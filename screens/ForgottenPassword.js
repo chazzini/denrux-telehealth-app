@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useRef, useState } from "react";
 import { Dimensions, KeyboardAvoidingView } from "react-native";
 import styled from "styled-components/native";
-import TextInput from "../components/TextInput";
+import TextInput from "../components/onboarding/TextInput";
 
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get("window");
 

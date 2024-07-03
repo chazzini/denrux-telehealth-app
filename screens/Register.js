@@ -2,10 +2,10 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useRef, useState } from "react";
 import { Dimensions, KeyboardAvoidingView, Text } from "react-native";
 import styled, { useTheme } from "styled-components/native";
-import TextInput from "../components/TextInput";
+import TextInput from "../components/onboarding/TextInput";
 import DropDown from "react-native-input-select";
-import TermsAndCondition from "../components/Terms";
-import TopBar from "../components/TopBarBack";
+import TermsAndCondition from "../components/onboarding/Terms";
+import TopBar from "../components/onboarding/TopBarBack";
 
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -17,7 +17,7 @@ const Title = styled.Text`
   font-family: "Roboto-Bold";
   font-size: 24px;
   color: ${(props) => props.theme.primaryColor};
-  font-weight: 600;
+  font-weight: 300;
   margin-top: 10px;
   padding: 0px 20px;
 `;
